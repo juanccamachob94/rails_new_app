@@ -7,7 +7,9 @@
             %li=link_to "Explorar","#"
             %li=link_to "Sugerencias","#"
         =grid xs:10, class:"col-sm" do
-          =render "posts/form", post: @post
+          .white.large-padding
+            =render "posts/form", post: @post
           #posts
+            =render @posts
       -if user_signed_in?
         =link_to "Logout",destroy_user_session_path, method: :delete
