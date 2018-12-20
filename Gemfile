@@ -34,9 +34,10 @@ gem 'rspec-rails', '~> 3.8'
 gem 'factory_bot_rails'
 gem 'annotate'
 gem 'flexbox_rb'
-gem 'best_in_place', '~>3.0.1'
+gem 'best_in_place', '~> 3.0.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'paperclip','~> 6.0.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

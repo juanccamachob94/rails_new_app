@@ -1,5 +1,7 @@
 class UsuariosController < ApplicationController
   before_action :set_user
+  before_action :authenticate_owner!, only: [:update]
+  before_action :authenticate_user!, only: [:update]
   def show
 
   end
@@ -15,10 +17,15 @@ class UsuariosController < ApplicationController
     end
   end
   private
+  def authenticate_owner!
+    if current_user != @user
+      redirect_to root_path, notice: "No estás autorizado", status: :unauthorized
+    end
+  end
   def set_user
     @user = User.find(params[:id])
   end
   def user_params
-    params.require(:user).permit(:email,:username,:last_name,:bio)
+    params.require(:user).permit(:email,:username,:last_name,:bio,:avatar,:cover)
   end
 end
