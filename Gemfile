@@ -32,6 +32,7 @@ gem 'shoulda-matchers', '4.0.0.rc1'
 gem 'rails-controller-testing'
 gem 'rspec-rails', '~> 3.8'
 gem 'factory_bot_rails'
+gem 'annotate'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
