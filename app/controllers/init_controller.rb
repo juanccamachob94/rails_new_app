@@ -1,5 +1,6 @@
 class InitController < ApplicationController
   def authenticated
+    @post = Post.new
   end
   def unauthenticated
   end

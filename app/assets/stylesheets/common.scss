@@ -10,6 +10,13 @@ html, body {
 .big-padding {
   padding: 2em 1.5em;
 }
+.remove-bullet-points {
+  list-style-type: none;
+  margin: 0;
+}
+.full-width {
+  width: 100% !important;
+}
 .top-space {
   margin-top: 1em;
 }
@@ -18,4 +25,7 @@ html, body {
 }
 .text-left {
   text-align: left;
+}
+.text-right {
+  text-align: right;
 }
