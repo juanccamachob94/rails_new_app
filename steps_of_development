@@ -22,6 +22,17 @@ Este paso no es realmente necesario a menos que el modelo User se quiera modific
 7. Se ejecuta la migración con devise:
 rails db:migrate
 
+NOTA: Las funciones javascript de Material Design no funcionan por causa de turbolinks que es importado en los layouts. COn esta configuración de javascript se corrige:
+document.addEventListener('page:change', function() {
+  componentHandler.upgradeDom();
+});
+pero no funciona y se debe usar:
+document.addEventListener('turbolinks:load', function() {
+  componentHandler.upgradeDom();
+});
+
+NOTA: Actualmente tengo el problema de que en haml no me reconoce =grid y es porque no he instalado la gema de flexbox, para eso voy a agregar y ejecutar:
+gem 'flexbox_rb'
 
 ########################################################################################################################################################################
 ########################################################################################################################################################################
