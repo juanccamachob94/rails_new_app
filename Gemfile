@@ -39,7 +39,11 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'paperclip','~> 6.0.0'
 gem 'aasm'
+<<<<<<< HEAD
 gem 'activemodel-serializers-xml',github:'rails/activemodel-serializers-xml'
+=======
+gem 'activemodel-serializers-xml', github:'rails/activemodel-serializers-xml'
+>>>>>>> 6a39bbb7da981756bc7a479b82cfd4585fb5b9d0
 gem 'draper',github:'audionerd/draper',branch:'rails5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

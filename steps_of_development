@@ -438,25 +438,14 @@ def set_layout layout = "application"
 end
 
 
-Imágenes:
-rails g migration add_attachment_cover_and_avatar_to_users
-
-Tener SetPost genera errores. ES una clase para definir lo de before y after
-
-
-
-
-
-Subir una imagen al servidor:
-1. Instalaciión de paperclip y de ImageMagic
-2. Configuraciones mostradas anteriormente
-
-
-
-Se agrega lo siguiente a app/models/user.rb
-
-has_attached_file :avatar, styles: {thumb: "100x100", medium: "300x300"}, default_url: "/images/:style/missing.png"
-has_attached_file :cover, styles: {thumb: "400x300", medium: "800x600"}, default_url: "/images/:style/missing_cover.png"
-
-validates_attachment_content_type :avatar, content_type: /\Aimage/\.*\Z/
-validates_attachment_content_type :cover, content_type: /\Aimage/\.*\Z/
+Relación de amigos:
+De entrada hay un error en cuanto al uso de una función llamada before_filter de una librería que será importada luego. ESta función fue modificada para las versiones posteriores a rails 5.1; ahora se llama before_action, o al menos eso fue lo que encontré en github. Para solucionar el problema tuve que integrar primero la librería al proyecto, junto a las otras de paso:
+gem 'aasm'
+gem 'activemodel-serializers-xml', github:'rails/activemodel-serializers-xml'
+gem 'draper',github:'audionerd/draper',branch:'rails5'
+COntinúo con bundle install y todo sale correcto. AHora procedo al siguiente comando:
+rails g model Friendship user:references Friend:references status
+ESto marca un error sobre la inexistencia de la función mencionada anteriormente, lo que me hizo modificar el archivo mostrado al inicio de la fuente del error:
+gedit /root/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/bundler/gems/draper-e816e0e5876b/lib/draper.rb
+Busqué la función y la reemplacé. Sólo aparece una vez.
+NUevamente ejecuto el comando y todo sale perfecto!
